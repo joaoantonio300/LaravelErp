@@ -14,7 +14,6 @@
                 <option value="saida">Saída</option>
             </select>
         </div>
-
         <div class="mb-3">
             <label for="produto_id" class="form-label">Produto</label>
             <input type="text" name="produto_id" id="produto_id" class="form-control" required>

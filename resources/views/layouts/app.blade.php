@@ -3,26 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>ERP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar {
+            width: 220px;
+            min-height: 100vh;
+            background-color: #343a40;
+            color: #fff;
+            padding: 1rem;
+            transition: width 0.3s;
+        }
+        .sidebar.collapsed {
+            width: 60px;
+        }
+        .sidebar .nav-link {
+            color: #fff;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sidebar .nav-link:hover {
+            background-color: #495057;
+            border-radius: 5px;
+        }
+        .content {
+            flex: 1;
+            padding: 1rem;
+            transition: margin-left 0.3s;
+        }
+        .content.expanded {
+            margin-left: 220px;
+        }
+        .content.collapsed {
+            margin-left: 60px;
+        }
+        .user-info {
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+        .user-info img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: all 0.3s;
+        }
+        .sidebar.collapsed .user-info img {
+            width: 40px;
+            height: 40px;
+        }
+        .sidebar.collapsed .user-info p {
+            display: none;
+        }
+        .toggle-btn {
+            cursor: pointer;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        .sidebar .nav-link i {
+            font-size: 1.2rem;
+        }
+        .sidebar.collapsed .nav-link span {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="bg-light">
-        
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-0">
+        <div class="container-fluid">
             <a class="navbar-brand" href="{{ url('/') }}">ERP</a>
         </div>
     </nav>
 
-    <div class="container">
-        @yield('content')
+    <div class="d-flex">
+        <div class="sidebar" id="sidebar">
+            <div class="toggle-btn text-end">
+                <span id="toggleBtn">&#9776;</span>
+            </div>
+            <div class="user-info">
+                <img class="" src="{{ auth()->user()->photo ?? 'https://via.placeholder.com/80' }}" alt="Foto do usuário">
+                <p class="mt-2">{{ auth()->user()->name ?? 'Usuário' }}</p>
+            </div>
+            <nav class="nav flex-column">
+                <a class="nav-link" href="#"><i class="bi bi-speedometer2"></i><span>Dashboard</span></a>
+                <a class="nav-link" href="#"><i class="bi bi-people"></i><span>Usuários</span></a>
+                <a class="nav-link" href="#"><i class="bi bi-box-seam"></i><span>Produtos</span></a>
+                <a class="nav-link" href="#"><i class="bi bi-cart"></i><span>Vendas</span></a>
+                <a class="nav-link" href="#"><i class="bi bi-basket"></i><span>Compras</span></a>
+                <a class="nav-link" href="#"><i class="bi bi-file-text"></i><span>Relatórios</span></a>
+            </nav>
+        </div>
+        <div class="content expanded" id="mainContent">
+            @yield('content')
+        </div>
     </div>
-
-    <footer class="text-center mt-4">
+    <footer class="text-center mt-4 py-3 bg-light">
         <small>&copy; {{ date('Y') }} - Meu Sistema</small>
     </footer>
-</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const toggleBtn = document.getElementById('toggleBtn');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        const userInfo = document.querySelector('.user-info')
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+            userInfo.classList.toggle('')
+        });
+    </script>
 </body>
 </html>

@@ -5,8 +5,6 @@
 @section('content')
 <div class="container">
     <h1 class="mb-4">Movimentações</h1>
-
-    <!-- Filtros -->
     <form method="GET" action="{{ route('movimentacaos.index') }}" class="row g-2 mb-4 align-items-end">
         <div class="col-auto">
             <label for="tipo" class="form-label">Tipo</label>
@@ -34,8 +32,6 @@
             <a href="{{ route('movimentacaos.index') }}" class="btn btn-secondary">Limpar</a>
         </div>
     </form>
-
-    <!-- Tabela -->
     <div class="table-responsive">
         <table class="table table-bordered table-striped align-middle text-center">
             <thead class="table-light">
@@ -75,8 +71,6 @@
             </tbody>
         </table>
     </div>
-
-    <!-- Paginação -->
     <div class="mt-3">
         {{ $movimentacaos->links('pagination::bootstrap-5') }}
     </div>
