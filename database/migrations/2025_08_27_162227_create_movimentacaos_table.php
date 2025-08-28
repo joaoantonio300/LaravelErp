@@ -17,6 +17,7 @@ return new class extends Migration
             $table->enum('tipo', ['entrada', 'saida']);
             $table->unsignedBigInteger('produto_id');
             $table->integer('quantidade');
+            $table->decimal('valor_unitario', 10, 2);
             $table->text('observacao')->nullable();
             $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
         });

@@ -6,17 +6,12 @@
     </select>
 </div>
 
- <div class="mb-3">
-        <label for="produto_id" class="form-label">Produto</label>
-        <select name="produto_id" id="produto_id" class="form-control" required>
-            <option value="">Selecione um produto</option>
-            @foreach($produtos as $produto)
-                <option value="{{ $produto->id }}" {{ old('produto_id') == $produto->id ? 'selected' : '' }}>
-                    {{ $produto->nome }}
-                </option>
-            @endforeach
-        </select>
-    </div>
+<div class="mb-3">
+    <label for="produto_id" class="form-label">Produto</label>
+    <input type="text" name="produto_id" id="produto_id"
+           value="{{ old('produto_id', $movimentacao->produto_id ?? '') }}"
+           class="form-control" required>
+</div>
 
 <div class="mb-3">
     <label for="quantidade" class="form-label">Quantidade</label>

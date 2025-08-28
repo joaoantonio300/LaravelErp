@@ -17,6 +17,7 @@ class MovimentacaoFactory extends Factory
              'tipo' => $this->faker->randomElement(['entrada', 'saida']),
             'produto_id' => Produto::inRandomOrder()->first()->id ?? Produto::factory(),
             'quantidade' => $this->faker->numberBetween(1, 50),
+            'valor_unitario' => $this->faker->numberBetween(1,1000),
             'observacao' => $this->faker->optional()->sentence,
         ];
     }

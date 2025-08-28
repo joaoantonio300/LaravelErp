@@ -13,6 +13,7 @@ class Movimentacao extends Model
         'tipo',
         'produto_id',
         'quantidade',
+        'valor_unitario',
         'observacao',
     ];
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movimentacao;
 use Illuminate\Http\Request;
+use App\Models\Produto;
 
 class MovimentacaoController extends Controller
 {
@@ -28,7 +29,8 @@ class MovimentacaoController extends Controller
    
     public function create()
     {
-        return view('movimentacaos.create');
+        $produtos = Produto::all();
+        return view('movimentacaos.create', compact('produtos'));
     }
 
    

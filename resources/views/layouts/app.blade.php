@@ -21,7 +21,7 @@
             transition: width 0.3s;
         }
         .sidebar.collapsed {
-            width: 60px;
+            width: 90px;
         }
         .sidebar .nav-link {
             color: #fff;
@@ -90,15 +90,19 @@
                 <span id="toggleBtn">&#9776;</span>
             </div>
             <div class="user-info">
-                <img class="" src="{{ auth()->user()->photo ?? 'https://via.placeholder.com/80' }}" alt="Foto do usuário">
-                <p class="mt-2">{{ auth()->user()->name ?? 'Usuário' }}</p>
+               <img src="https://img10.hotstar.com/image/upload/f_auto,q_auto/sources/r1/cms/prod/1468/1727698041468-i" 
+              alt="Foto do usuário" 
+              class="w-24 h-24 rounded-full object-cover">
+              <p class="mt-2">{{ auth()->user()->name ?? 'Usuário' }}</p>
+
             </div>
             <nav class="nav flex-column">
-                <a class="nav-link" href="#"><i class="bi bi-speedometer2"></i><span>Dashboard</span></a>
-                <a class="nav-link" href="#"><i class="bi bi-people"></i><span>Usuários</span></a>
-                <a class="nav-link" href="#"><i class="bi bi-box-seam"></i><span>Produtos</span></a>
-                <a class="nav-link" href="#"><i class="bi bi-cart"></i><span>Vendas</span></a>
-                <a class="nav-link" href="#"><i class="bi bi-basket"></i><span>Compras</span></a>
+                <a class="nav-link" href="{{ route('produtos.index')}}"><i class="bi bi-speedometer2"></i><span>Dashboard</span></a>
+                <a class="nav-link" href="{{ route('produtos.index')}}"><i class="bi bi-people"></i><span>Usuários</span></a>
+                <a class="nav-link" href="{{ route('produtos.index')}}"><i class="bi bi-box-seam"></i><span>Produtos</span></a>
+                <a class="nav-link" href=""><i class="bi bi-tags"></i><span>Categorias</span></a>
+                <a class="nav-link" href="{{ route('movimentacaos.index')}}"><i class="bi bi-arrow-left-right"></i><span>Movimentações</span>
+                </a>
                 <a class="nav-link" href="#"><i class="bi bi-file-text"></i><span>Relatórios</span></a>
             </nav>
         </div>
