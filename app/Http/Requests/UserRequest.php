@@ -11,7 +11,8 @@ class UserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        // observar quando for mexer nas permissions
+        return true;
     }
 
     /**

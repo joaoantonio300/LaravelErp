@@ -2,17 +2,20 @@
 
 namespace App\Services;
 
+use App\Repositories\UserRepository;
 use App\DTOs\UserDTO;
-use App\Models\User;
-
 class UserService
 {
-    public function create(UserDTO $dto): User
+
+     public function __construct(UserRepository $repository)
     {
-        return User::create([
-            'name' => $dto->name,
-            'email' => $dto->email,
-            'password' => $dto->password,
-        ]);
+        $this->repository = $repository;
+    }
+
+    public function create(UserDTO $dto)
+    {
+        $dto->password = bcrypt($dto->password);
+
+        return $this->repository->create($dto);
     }
 }
