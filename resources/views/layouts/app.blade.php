@@ -97,13 +97,13 @@
 
             </div>
             <nav class="nav flex-column">
-                <a class="nav-link" href="{{ route('produtos.index')}}"><i class="bi bi-speedometer2"></i><span>Dashboard</span></a>
+                <a class="nav-link" href="{{ route('estoque.index')}}"><i class="bi bi-box-seam"></i><span>Estoque</span></a>
                 <a class="nav-link" href="{{ route('produtos.index')}}"><i class="bi bi-people"></i><span>Usuários</span></a>
                 <a class="nav-link" href="{{ route('produtos.index')}}"><i class="bi bi-box-seam"></i><span>Produtos</span></a>
                 <a class="nav-link" href=""><i class="bi bi-tags"></i><span>Categorias</span></a>
                 <a class="nav-link" href="{{ route('movimentacaos.index')}}"><i class="bi bi-arrow-left-right"></i><span>Movimentações</span>
                 </a>
-                <a class="nav-link" href="#"><i class="bi bi-file-text"></i><span>Relatórios</span></a>
+                <a class="nav-link" href="{{ route('relatorios.index')}}"><i class="bi bi-file-text"></i><span>Relatórios</span></a>
             </nav>
         </div>
         <div class="content expanded" id="mainContent">
