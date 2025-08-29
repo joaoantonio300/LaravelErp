@@ -349,9 +349,9 @@
         }
 
         .arrow-container {
-            display: inline-block; /* Garante que o contêiner se ajuste ao conteúdo */
+            display: inline-block; 
             position: relative;
-            vertical-align: middle; /* Alinha verticalmente com o texto */
+            vertical-align: middle; 
         }
 
         .arrow-up {
@@ -370,7 +370,7 @@
             top: 1;
             border-left: 6px solid transparent;
             border-right: 6px solid transparent;
-            border-top: 8px solid #dd4b39; /* Altere a cor aqui */
+            border-top: 8px solid #dd4b39; 
             position: relative;
         }
 

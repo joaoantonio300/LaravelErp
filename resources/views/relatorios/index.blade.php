@@ -44,7 +44,7 @@
         </div>
     </div>
 
-@include('movimentacaos.relatorio.modal_relatorio')
+@include('movimentacaos.relatorio.modals.relatorio_de_movimentacoes_modal')
 
 <script src="{{ asset('js/filtroMovimentacoes.js') }}"></script>
 

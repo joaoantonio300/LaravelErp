@@ -82,6 +82,13 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url('/') }}">ERP</a>
         </div>
+        <form action="{{ route('logout') }}" method="POST" class="d-inline">
+    @csrf
+    <button type="submit" class="btn btn-danger btn-sm">
+        <i class="bi bi-box-arrow-right"></i> Logout
+    </button>
+</form>
+
     </nav>
 
     <div class="d-flex">
@@ -98,7 +105,7 @@
             </div>
             <nav class="nav flex-column">
                 <a class="nav-link" href="{{ route('estoque.index')}}"><i class="bi bi-box-seam"></i><span>Estoque</span></a>
-                <a class="nav-link" href="{{ route('produtos.index')}}"><i class="bi bi-people"></i><span>Usuários</span></a>
+                <a class="nav-link" href="{{ route('usuarios.index')}}"><i class="bi bi-people"></i><span>Usuários</span></a>
                 <a class="nav-link" href="{{ route('produtos.index')}}"><i class="bi bi-box-seam"></i><span>Produtos</span></a>
                 <a class="nav-link" href=""><i class="bi bi-tags"></i><span>Categorias</span></a>
                 <a class="nav-link" href="{{ route('movimentacaos.index')}}"><i class="bi bi-arrow-left-right"></i><span>Movimentações</span>
