@@ -19,6 +19,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('relatorio/movimentacoes/geral', [MovimentacaoReportController::class, 'exportPdf']);
 
+    Route::get('/', function () {
+        return view('home.home'); // ou outra view que você queira
+    });
+
     Route::resource('produtos', ProdutoController::class);
     Route::resource('relatorios', RelatorioController::class);
     Route::resource('movimentacaos', MovimentacaoController::class);
