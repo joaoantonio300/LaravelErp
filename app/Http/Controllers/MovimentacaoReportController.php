@@ -21,7 +21,7 @@ class MovimentacaoReportController extends Controller
 
     $movimentacaos = $query->get();
     $pdf = Pdf::loadView('movimentacaos.relatorio.relatorio_de_movimentacoes', compact('movimentacaos'));
-    return $pdf->download('relatorio_movimentacoes.pdf');
+    return $pdf->stream('relatorio_movimentacoes.pdf');
 }
 
 }
