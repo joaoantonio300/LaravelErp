@@ -14,26 +14,26 @@ class MovimentacaoController extends Controller
         $query = Movimentacao::query();
 
         if ($request->filled('tipo')) {
-        $query->where('tipo', $request->tipo);
+            $query->where('tipo', $request->tipo);
         }
 
         if ($request->filled('produto_id')) {
             $query->where('produto_id', $request->produto_id);
         }
 
-        $movimentacaos = $query->latest()->paginate(10)->withQueryString();;
-     
+        $movimentacaos = $query->latest()->paginate(10)->withQueryString();
+
         return view('movimentacaos.index', compact('movimentacaos'));
     }
 
-   
+
     public function create()
     {
         $produtos = Produto::all();
         return view('movimentacaos.create', compact('produtos'));
     }
 
-   
+
     public function store(Request $request)
     {
         $request->validate([
@@ -47,24 +47,24 @@ class MovimentacaoController extends Controller
         Movimentacao::create($request->all());
 
         return redirect()->route('movimentacaos.index')
-                         ->with('success', 'Movimentação criada com sucesso!');
+            ->with('success', 'Movimentação criada com sucesso!');
     }
 
-    
+
     public function show(string $id)
     {
         $movimentacao = Movimentacao::findOrFail($id);
         return view('movimentacaos.show', compact('movimentacao'));
     }
 
-   
+
     public function edit(string $id)
     {
         $movimentacao = Movimentacao::findOrFail($id);
         return view('movimentacaos.edit', compact('movimentacao'));
     }
 
-    
+
     public function update(Request $request, string $id)
     {
         $request->validate([
@@ -79,7 +79,7 @@ class MovimentacaoController extends Controller
         $movimentacao->update($request->all());
 
         return redirect()->route('movimentacaos.index')
-                         ->with('success', 'Movimentação atualizada com sucesso!');
+            ->with('success', 'Movimentação atualizada com sucesso!');
     }
 
 
@@ -89,6 +89,6 @@ class MovimentacaoController extends Controller
         $movimentacao->delete();
 
         return redirect()->route('movimentacaos.index')
-                         ->with('success', 'Movimentação excluída com sucesso!');
+            ->with('success', 'Movimentação excluída com sucesso!');
     }
 }

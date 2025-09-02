@@ -13,21 +13,21 @@ class UserController extends Controller
     public function __construct(private UserService $userService) {}
 
     public function index(Request $request)
-{
-    $query = User::query();
+    {
+        $query = User::query();
 
-    if ($request->filled('name')) {
-        $query->where('name', 'like', "%{$request->name}%");
+        if ($request->filled('name')) {
+            $query->where('name', 'like', "%{$request->name}%");
+        }
+
+        if ($request->filled('email')) {
+            $query->where('email', 'like', "%{$request->email}%");
+        }
+
+        $usuarios = $query->latest()->paginate(10)->withQueryString();
+
+        return view('usuarios.index', compact('usuarios'));
     }
-
-    if ($request->filled('email')) {
-        $query->where('email', 'like', "%{$request->email}%");
-    }
-
-    $usuarios = $query->latest()->paginate(10)->withQueryString();
-
-    return view('usuarios.index', compact('usuarios'));
-}
 
     public function create()
     {

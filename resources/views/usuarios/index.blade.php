@@ -40,23 +40,24 @@
             </thead>
             <tbody>
                 @forelse($usuarios as $usuario)
-                    <tr>
-                        <td>{{ $usuario->id }}</td>
-                        <td>{{ $usuario->name }}</td>
-                        <td>{{ $usuario->email }}</td>
-                        <td class="d-flex justify-content-center gap-2">
-                            <a href="{{ route('usuarios.edit', $usuario->id) }}" class="btn btn-warning btn-sm">Editar</a>
-                            <form action="{{ route('usuarios.destroy', $usuario->id) }}" method="POST" onsubmit="return confirm('Deseja excluir este usuário?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
-                            </form>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>{{ $usuario->id }}</td>
+                    <td>{{ $usuario->name }}</td>
+                    <td>{{ $usuario->email }}</td>
+                    <td class="d-flex justify-content-center gap-2">
+                        <a href="{{ route('usuarios.edit', $usuario->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                        <form action="{{ route('usuarios.destroy', $usuario->id) }}" method="POST"
+                            onsubmit="return confirm('Deseja excluir este usuário?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
                 @empty
-                    <tr>
-                        <td colspan="5">Nenhum usuário encontrado.</td>
-                    </tr>
+                <tr>
+                    <td colspan="5">Nenhum usuário encontrado.</td>
+                </tr>
                 @endforelse
             </tbody>
         </table>

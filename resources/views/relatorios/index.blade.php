@@ -24,7 +24,8 @@
                     <h5 class="card-title">Movimentações</h5>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#" class="text-decoration-none movimentacoes" data-url="/relatorio/movimentacoes/geral">
+                            <a href="#" class="text-decoration-none movimentacoes"
+                                data-url="/relatorio/movimentacoes/geral">
                                 Relatório Geral de Movimentações
                             </a>
                         </li>
@@ -44,9 +45,9 @@
         </div>
     </div>
 
-@include('movimentacaos.relatorio.modals.relatorio_de_movimentacoes_modal')
+    @include('movimentacaos.relatorio.modals.relatorio_de_movimentacoes_modal')
 
-<script src="{{ asset('js/filtroMovimentacoes.js') }}"></script>
+    <script src="{{ asset('js/filtroMovimentacoes.js') }}"></script>
 
-@endsection
+    @endsection
 </div>

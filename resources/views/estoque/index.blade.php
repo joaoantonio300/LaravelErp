@@ -30,17 +30,17 @@
             </thead>
             <tbody>
                 @forelse($produtos as $produto)
-                    <tr>
-                        <td>{{ $produto->id }}</td>
-                        <td>{{ $produto->nome }}</td>
-                        <td class="{{ $produto->saldo < 0 ? 'text-danger' : '' }}">
-                            {{ $produto->saldo }}
-                        </td>
-                    </tr>
+                <tr>
+                    <td>{{ $produto->id }}</td>
+                    <td>{{ $produto->nome }}</td>
+                    <td class="{{ $produto->saldo < 0 ? 'text-danger' : '' }}">
+                        {{ $produto->saldo }}
+                    </td>
+                </tr>
                 @empty
-                    <tr>
-                        <td colspan="3">Nenhum produto encontrado.</td>
-                    </tr>
+                <tr>
+                    <td colspan="3">Nenhum produto encontrado.</td>
+                </tr>
                 @endforelse
             </tbody>
         </table>

@@ -22,7 +22,7 @@
                         <select name="produto_id" id="produto_id_rel" class="form-select">
                             <option value="">Todos os produtos</option>
                             @foreach(App\Models\Produto::all() as $produto)
-                                <option value="{{ $produto->id }}">{{ $produto->nome }}</option>
+                            <option value="{{ $produto->id }}">{{ $produto->nome }}</option>
                             @endforeach
                         </select>
                     </div>

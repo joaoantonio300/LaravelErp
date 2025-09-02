@@ -35,24 +35,25 @@
             </thead>
             <tbody>
                 @forelse($produtos as $produto)
-                    <tr>
-                        <td>{{ $produto->id }}</td>
-                        <td>{{ $produto->nome }}</td>
-                        <!-- <td>R$ {{ number_format($produto->preco, 2, ',', '.') }}</td> -->
-                        <td>{{ $produto->descricao ?? '—' }}</td>
-                        <td class="d-flex justify-content-center gap-2">
-                            <a href="{{ route('produtos.edit', $produto->id) }}" class="btn btn-warning btn-sm">Editar</a>
-                            <form action="{{ route('produtos.destroy', $produto->id) }}" method="POST" onsubmit="return confirm('Deseja excluir?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
-                            </form>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>{{ $produto->id }}</td>
+                    <td>{{ $produto->nome }}</td>
+                    <!-- <td>R$ {{ number_format($produto->preco, 2, ',', '.') }}</td> -->
+                    <td>{{ $produto->descricao ?? '—' }}</td>
+                    <td class="d-flex justify-content-center gap-2">
+                        <a href="{{ route('produtos.edit', $produto->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                        <form action="{{ route('produtos.destroy', $produto->id) }}" method="POST"
+                            onsubmit="return confirm('Deseja excluir?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
                 @empty
-                    <tr>
-                        <td colspan="5">Nenhum produto encontrado.</td>
-                    </tr>
+                <tr>
+                    <td colspan="5">Nenhum produto encontrado.</td>
+                </tr>
                 @endforelse
             </tbody>
         </table>
