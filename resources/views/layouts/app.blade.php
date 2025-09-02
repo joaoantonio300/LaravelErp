@@ -92,6 +92,13 @@
     </style>
 </head>
 <body>
+
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-0">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">ERP</a>
