@@ -12,7 +12,7 @@ class ProdutoController extends Controller
     {
         $query = Produto::query();
 
-        if  ($request->filled('nome')) {
+        if ($request->filled('nome')) {
             $query->where('nome', $request->nome);
         }
 
@@ -20,13 +20,13 @@ class ProdutoController extends Controller
         return view('produtos.index', compact('produtos'));
     }
 
- 
+
     public function create()
     {
         return view('produtos.create');
     }
 
-   
+
     public function store(Request $request)
     {
         $request->validate([
@@ -38,24 +38,24 @@ class ProdutoController extends Controller
         Produto::create($request->all());
 
         return redirect()->route('produtos.index')
-                         ->with('success', 'Produto criado com sucesso!');
+            ->with('success', 'Produto criado com sucesso!');
     }
 
-   
+
     public function show(string $id)
     {
         $produto = Produto::findOrFail($id);
         return view('produtos.show', compact('produto'));
     }
 
-    
+
     public function edit(string $id)
     {
         $produto = Produto::findOrFail($id);
         return view('produtos.edit', compact('produto'));
     }
 
-    
+
     public function update(Request $request, string $id)
     {
         $request->validate([
@@ -67,7 +67,7 @@ class ProdutoController extends Controller
         $produto->update($request->all());
 
         return redirect()->route('produtos.index')
-                         ->with('success', 'Produto atualizado com sucesso!');
+            ->with('success', 'Produto atualizado com sucesso!');
     }
 
     public function destroy(string $id)
@@ -76,6 +76,6 @@ class ProdutoController extends Controller
         $produto->delete();
 
         return redirect()->route('produtos.index')
-                         ->with('success', 'Produto excluído com sucesso!');
+            ->with('success', 'Produto excluído com sucesso!');
     }
 }

@@ -8,11 +8,11 @@ use App\Models\Produto;
 
 class EstoqueController extends Controller
 {
-      public function index(Request $request)
+    public function index(Request $request)
     {
         $produtos = Produto::with(['movimentacoes'])->get();
 
-        $produtos->transform(function($produto) {
+        $produtos->transform(function ($produto) {
             $entradas = $produto->movimentacoes->where('tipo', 'entrada')->sum('quantidade');
             $saidas = $produto->movimentacoes->where('tipo', 'saida')->sum('quantidade');
             $produto->saldo = $entradas - $saidas;

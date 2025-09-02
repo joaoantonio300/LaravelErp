@@ -6,5 +6,6 @@
 
 <div class="mb-3">
     <label for="descricao" class="form-label">Descrição</label>
-    <textarea name="descricao" id="descricao" class="form-control">{{ old('descricao', $produto->descricao ?? '') }}</textarea>
+    <textarea name="descricao" id="descricao"
+              class="form-control">{{ old('descricao', $produto->descricao ?? '') }}</textarea>
 </div>

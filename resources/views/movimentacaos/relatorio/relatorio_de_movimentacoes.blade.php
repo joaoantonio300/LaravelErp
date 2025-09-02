@@ -18,15 +18,15 @@
         </tr>
         </thead>
         <tbody>
-            @foreach($movimentacaos as $mov)
-                <tr>
-                    <td>{{$mov->tipo}}</td>
-                    <td>{{$mov->produto->nome}}</td>
-                    <td>{{$mov->quantidade}}</td>
-                    <td>{{$mov->valor_unitario}}</td>
-                </tr>
-            @endforeach
-      
+        @foreach($movimentacaos as $mov)
+            <tr>
+                <td>{{$mov->tipo}}</td>
+                <td>{{$mov->produto->nome}}</td>
+                <td>{{$mov->quantidade}}</td>
+                <td>{{$mov->valor_unitario}}</td>
+            </tr>
+        @endforeach
+
         </tbody>
     </table>
 @endsection
