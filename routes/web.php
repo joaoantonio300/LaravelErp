@@ -8,6 +8,8 @@ use App\Http\Controllers\RelatorioController;
 use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RoleController;
+
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -22,6 +24,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/', function () {
         return view('home.home');
     });
+
+    Route::resource('roles', RoleController::class);
 
     Route::resource('produtos', ProdutoController::class);
     Route::resource('relatorios', RelatorioController::class);

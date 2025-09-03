@@ -46,9 +46,6 @@
             </table>
         </div>
     </div>
-<<<<<<< HEAD
 </div>
 @endsection
-=======
-@endsection
->>>>>>> 42421110a5a917b0596aceb240f9d2f6c46997f7
+

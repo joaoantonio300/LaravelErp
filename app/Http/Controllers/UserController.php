@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUserRequest;
 use App\DTOs\UserDTO;
-use App\Services\UserService;
+use App\Http\Controllers\Requests\StoreUserRequest;
 use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -33,7 +34,8 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('usuarios.create');
+        $roles = \Spatie\Permission\Models\Role::all();
+        return view('usuarios.create', compact('roles'));
     }
 
     public function store(StoreUserRequest $request)
@@ -46,8 +48,10 @@ class UserController extends Controller
 
     public function edit(User $usuario)
     {
-        return view('usuarios.edit', compact('usuario'));
+        $roles = Role::all();
+        return view('usuarios.edit', compact('usuario', 'roles'));
     }
+
 
     public function update(Request $request, User $usuario)
     {

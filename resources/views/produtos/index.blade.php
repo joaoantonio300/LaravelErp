@@ -35,44 +35,23 @@
                 </thead>
                 <tbody>
                 @forelse($produtos as $produto)
-<<<<<<< HEAD
-                <tr>
-                    <td>{{ $produto->id }}</td>
-                    <td>{{ $produto->nome }}</td>
-                    <!-- <td>R$ {{ number_format($produto->preco, 2, ',', '.') }}</td> -->
-                    <td>{{ $produto->descricao ?? '—' }}</td>
-                    <td class="d-flex justify-content-center gap-2">
-                        <a href="{{ route('produtos.edit', $produto->id) }}" class="btn btn-warning btn-sm">Editar</a>
-                        <form action="{{ route('produtos.destroy', $produto->id) }}" method="POST"
-                            onsubmit="return confirm('Deseja excluir?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
-                        </form>
-                    </td>
-                </tr>
-=======
                     <tr>
                         <td>{{ $produto->id }}</td>
                         <td>{{ $produto->nome }}</td>
-                        <!-- <td>R$ {{ number_format($produto->preco, 2, ',', '.') }}</td> -->
                         <td>{{ $produto->descricao ?? '—' }}</td>
                         <td class="d-flex justify-content-center gap-2">
-                            <a href="{{ route('produtos.edit', $produto->id) }}"
-                               class="btn btn-warning btn-sm">Editar</a>
-                            <form action="{{ route('produtos.destroy', $produto->id) }}" method="POST"
-                                  onsubmit="return confirm('Deseja excluir?');">
+                            <a href="{{ route('produtos.edit', $produto->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                            <form action="{{ route('produtos.destroy', $produto->id) }}" method="POST" onsubmit="return confirm('Deseja excluir?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
                             </form>
                         </td>
                     </tr>
->>>>>>> 42421110a5a917b0596aceb240f9d2f6c46997f7
                 @empty
-                <tr>
-                    <td colspan="5">Nenhum produto encontrado.</td>
-                </tr>
+                    <tr>
+                        <td colspan="4">Nenhum produto encontrado.</td>
+                    </tr>
                 @endforelse
                 </tbody>
             </table>
@@ -82,9 +61,4 @@
             {{ $produtos->links('pagination::bootstrap-5') }}
         </div>
     </div>
-<<<<<<< HEAD
-</div>
 @endsection
-=======
-@endsection
->>>>>>> 42421110a5a917b0596aceb240f9d2f6c46997f7

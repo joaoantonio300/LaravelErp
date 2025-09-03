@@ -14,39 +14,15 @@
     <div class="card shadow-sm p-4" style="width: 350px;">
         <h3 class="text-center mb-4">Entrar</h3>
 
-<<<<<<< HEAD
-            @if(session('error'))
-            <div class="alert alert-danger">{{ session('error') }}</div>
-            @endif
-=======
+        {{-- Alertas --}}
         @if(session('error'))
             <div class="alert alert-danger">{{ session('error') }}</div>
         @endif
->>>>>>> 42421110a5a917b0596aceb240f9d2f6c46997f7
 
+        {{-- Formulário de login --}}
         <form action="{{ route('login') }}" method="POST">
             @csrf
 
-<<<<<<< HEAD
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" id="email"
-                        class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required
-                        autofocus>
-                    @error('email')
-                    <span class="invalid-feedback">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="mb-3">
-                    <label for="password" class="form-label">Senha</label>
-                    <input type="password" name="password" id="password"
-                        class="form-control @error('password') is-invalid @enderror" required>
-                    @error('password')
-                    <span class="invalid-feedback">{{ $message }}</span>
-                    @enderror
-                </div>
-=======
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" name="email" id="email"
@@ -65,12 +41,10 @@
                 <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
->>>>>>> 42421110a5a917b0596aceb240f9d2f6c46997f7
 
             <div class="d-grid mb-3">
                 <button type="submit" class="btn btn-primary">Entrar</button>
             </div>
-
         </form>
     </div>
 </div>
