@@ -22,6 +22,9 @@ git clone https://github.com/joaoantonio300/LaravelErp.git
 # Copiar o arquivo de exemplo .env e configurar banco
 cp .env.example .env 
 
+# Baixar dependencias
+composer install
+
 # Gerar a chave da aplicação Laravel
  app php artisan key:generate
 
