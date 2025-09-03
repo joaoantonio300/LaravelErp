@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\StoreUserRequest;
 use App\DTOs\UserDTO;
 use App\Services\UserService;
 use App\Models\User;
@@ -36,7 +36,7 @@ class UserController extends Controller
         return view('usuarios.create');
     }
 
-    public function store(UserRequest $request)
+    public function store(StoreUserRequest $request)
     {
         $dto = UserDTO::fromArray($request->validated());
         $this->userService->create($dto);
