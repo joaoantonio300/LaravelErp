@@ -21,7 +21,11 @@ class MovimentacaoController extends Controller
             $query->where('produto_id', $request->produto_id);
         }
 
+<<<<<<< HEAD
         $movimentacaos = $query->latest()->paginate(10)->withQueryString();
+=======
+        $movimentacaos = $query->latest()->paginate(10)->withQueryString();;
+>>>>>>> 42421110a5a917b0596aceb240f9d2f6c46997f7
 
         return view('movimentacaos.index', compact('movimentacaos'));
     }

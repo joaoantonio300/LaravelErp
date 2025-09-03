@@ -11,9 +11,15 @@
     <select name="produto_id" id="produto_id" class="form-control" required>
         <option value="">Selecione um produto</option>
         @foreach($produtos as $produto)
+<<<<<<< HEAD
         <option value="{{ $produto->id }}" {{ old('produto_id') == $produto->id ? 'selected' : '' }}>
             {{ $produto->nome }}
         </option>
+=======
+            <option value="{{ $produto->id }}" {{ old('produto_id') == $produto->id ? 'selected' : '' }}>
+                {{ $produto->nome }}
+            </option>
+>>>>>>> 42421110a5a917b0596aceb240f9d2f6c46997f7
         @endforeach
     </select>
 </div>
@@ -33,5 +39,10 @@
 <div class="mb-3">
     <label for="observacao" class="form-label">Observação</label>
     <textarea name="observacao" id="observacao"
+<<<<<<< HEAD
         class="form-control">{{ old('observacao', $movimentacao->observacao ?? '') }}</textarea>
 </div>
+=======
+              class="form-control">{{ old('observacao', $movimentacao->observacao ?? '') }}</textarea>
+</div>
+>>>>>>> 42421110a5a917b0596aceb240f9d2f6c46997f7

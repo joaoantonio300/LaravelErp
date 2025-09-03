@@ -10,7 +10,9 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function __construct(private UserService $userService) {}
+    public function __construct(private UserService $userService)
+    {
+    }
 
     public function index(Request $request)
     {
@@ -37,7 +39,7 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         $dto = UserDTO::fromArray($request->validated());
-        $user = $this->userService->create($dto);
+        $this->userService->create($dto);
         return redirect()->route('usuarios.index')
             ->with('success', 'Usuário criado com sucesso!');
     }

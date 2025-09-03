@@ -19,6 +19,7 @@ $(document).ready(function() {
     <div class="row" style="margin-top: 20px;">
         <div class="col-md-12">
             <button type="submit" class="btn btn-success" id="btn-pdf" formaction="{{$url}}"
+<<<<<<< HEAD
                 style="margin-right: 10px;">Gerar PDF</button>
             @if($hasXlsx)
             <button type="submit" id="btn-xlsx" class="xlsx btn btn-dropbox" formaction="{{$url."/xlsx"}}"
@@ -27,6 +28,19 @@ $(document).ready(function() {
             @if($hasHtml)
             <button type="submit" id="btn-html" class="html btn btn-warning" formaction="{{$url."/html"}}"
                 style="margin-right: 10px;">Gerar HTML</button>
+=======
+                    style="margin-right: 10px;">Gerar PDF
+            </button>
+            @if($hasXlsx)
+                <button type="submit" id="btn-xlsx" class="xlsx btn btn-dropbox" formaction="{{$url."/xlsx"}}"
+                        style="margin-right: 10px;">Gerar xlsx
+                </button>
+            @endif
+            @if($hasHtml)
+                <button type="submit" id="btn-html" class="html btn btn-warning" formaction="{{$url."/html"}}"
+                        style="margin-right: 10px;">Gerar HTML
+                </button>
+>>>>>>> 42421110a5a917b0596aceb240f9d2f6c46997f7
             @endif
             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
             @if($permissaoLog)

@@ -1,7 +1,6 @@
-# 🌟 Laravel App Dockerized
+# 🌟 Laravel App 
 
 Um projeto Laravel pronto para desenvolvimento e deploy usando **Docker**.  
-Ideal para aplicações web dinâmicas, APIs e backends de mobile apps.
 
 ---
 
@@ -11,32 +10,17 @@ Ideal para aplicações web dinâmicas, APIs e backends de mobile apps.
 - Laravel 10
 - MySQL 8
 - Composer
-- Docker & Docker Compose
 
 ---
 
-## ⚡ Pré-requisitos
-
-- Docker
-- Docker Compose
-- Git
-
----
-
-## 💻 Executando Localmente
+## 💻 Executando Pelo terminal
 
 ```bash
 # Clonar o repositório e entrar na pasta do projeto
-git clone https://github.com/seu-usuario/seu-repo.git && cd seu-repo
-
-# Copiar o arquivo de exemplo .env
-cp .env.example .env
-
-# Subir apenas o container do banco (MySQL) ou todos os containers
-docker-compose up -d
-
-# Instalar as dependências do Laravel dentro do container app
-docker-compose exec app composer install
+git clone https://github.com/joaoantonio300/LaravelErp.git
+ 
+# Copiar o arquivo de exemplo .env e configurar banco
+cp .env.example .env 
 
 # Gerar a chave da aplicação Laravel
  app php artisan key:generate
