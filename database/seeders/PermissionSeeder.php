@@ -17,6 +17,11 @@ class PermissionSeeder extends Seeder
                 Permission::firstOrCreate(['name' => "{$module}.{$action}"]);
             }
         }
+
+        $viewOnlyModules = ['estoque', 'relatorios'];
+        foreach ($viewOnlyModules as $module) {
+            Permission::firstOrCreate(['name' => "{$module}.view"]);
+        }
     }
 
 }

@@ -11,9 +11,7 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-    public function __construct(private UserService $userService)
-    {
-    }
+    public function __construct(private UserService $userService) {}
 
     public function index(Request $request)
     {
@@ -41,7 +39,12 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $dto = UserDTO::fromArray($request->validated());
-        $this->userService->create($dto);
+        $user = $this->userService->create($dto);
+
+        if ($request->filled('roles')) {
+            $user->assignRole($request->roles);
+        }
+
         return redirect()->route('usuarios.index')
             ->with('success', 'Usuário criado com sucesso!');
     }
@@ -58,9 +61,16 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => "required|email|unique:users,email,{$usuario->id}",
+            'roles' => 'array',
         ]);
 
         $usuario->update($request->only('name', 'email'));
+
+        if ($request->filled('roles')) {
+            $usuario->syncRoles($request->roles);
+        } else {
+            $usuario->syncRoles([]);
+        }
 
         return redirect()->route('usuarios.index')
             ->with('success', 'Usuário atualizado com sucesso!');
