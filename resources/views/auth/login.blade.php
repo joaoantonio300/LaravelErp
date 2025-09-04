@@ -14,12 +14,10 @@
     <div class="card shadow-sm p-4" style="width: 350px;">
         <h3 class="text-center mb-4">Entrar</h3>
 
-        {{-- Alertas --}}
         @if(session('error'))
             <div class="alert alert-danger">{{ session('error') }}</div>
         @endif
 
-        {{-- Formulário de login --}}
         <form action="{{ route('login') }}" method="POST">
             @csrf
 
