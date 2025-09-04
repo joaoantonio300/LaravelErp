@@ -14,7 +14,6 @@
                     <div class="card-body">
                         <h5 class="card-title">Produtos</h5>
                         <ul class="list-unstyled">
-                            <!-- Links ou relatórios de produtos podem ser adicionados aqui -->
                         </ul>
                     </div>
                 </div>
@@ -41,7 +40,6 @@
                     <div class="card-body">
                         <h5 class="card-title">Estoque</h5>
                         <ul class="list-unstyled">
-                            <!-- Links ou relatórios de estoque podem ser adicionados aqui -->
                         </ul>
                     </div>
                 </div>

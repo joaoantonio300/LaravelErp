@@ -16,11 +16,15 @@
             <button type="submit" class="btn btn-success me-2" formaction="{{ $url }}">Gerar PDF</button>
 
             @if($hasXlsx)
-                <button type="submit" id="btn-xlsx" class="xlsx btn btn-dropbox me-2" formaction="{{ $url.'/xlsx' }}">Gerar XLSX</button>
+                <button type="submit" id="btn-xlsx" class="xlsx btn btn-dropbox me-2" formaction="{{ $url.'/xlsx' }}">
+                    Gerar XLSX
+                </button>
             @endif
 
             @if($hasHtml)
-                <button type="submit" id="btn-html" class="html btn btn-warning me-2" formaction="{{ $url.'/html' }}">Gerar HTML</button>
+                <button type="submit" id="btn-html" class="html btn btn-warning me-2" formaction="{{ $url.'/html' }}">
+                    Gerar HTML
+                </button>
             @endif
 
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -35,7 +39,7 @@
 </form>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         jsBuilder();
     });
 </script>

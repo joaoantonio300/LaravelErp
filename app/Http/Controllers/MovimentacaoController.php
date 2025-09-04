@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DTOs\MovimentacaoDTO;
-use App\Http\Controllers\Requests\StoreMovimentacaoRequest;
+use App\Http\Requests\StoreMovimentacaoRequest;
 use App\Models\Movimentacao;
 use App\Models\Produto;
 use App\Repositories\MovimentacaoRepository;

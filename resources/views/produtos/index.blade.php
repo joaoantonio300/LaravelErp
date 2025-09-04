@@ -40,8 +40,10 @@
                         <td>{{ $produto->nome }}</td>
                         <td>{{ $produto->descricao ?? '—' }}</td>
                         <td class="d-flex justify-content-center gap-2">
-                            <a href="{{ route('produtos.edit', $produto->id) }}" class="btn btn-warning btn-sm">Editar</a>
-                            <form action="{{ route('produtos.destroy', $produto->id) }}" method="POST" onsubmit="return confirm('Deseja excluir?');">
+                            <a href="{{ route('produtos.edit', $produto->id) }}"
+                               class="btn btn-warning btn-sm">Editar</a>
+                            <form action="{{ route('produtos.destroy', $produto->id) }}" method="POST"
+                                  onsubmit="return confirm('Deseja excluir?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">Excluir</button>

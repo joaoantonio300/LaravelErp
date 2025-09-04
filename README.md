@@ -1,6 +1,8 @@
-# 🌟 Laravel App 
+# 🌟 Laravel Erp
 
-Um projeto Laravel pronto para desenvolvimento e deploy usando **Docker**.  
+Um projeto Laravel buscando entender os principais conceitos e tecnicas
+para se construir um sistema de gerenciamento de itens (produtos), com controle
+de estoque, controle de permissoes e com acesso a relatorios
 
 ---
 
@@ -17,20 +19,23 @@ Um projeto Laravel pronto para desenvolvimento e deploy usando **Docker**.
 
 ```bash
 # Clonar o repositório e entrar na pasta do projeto
-git clone https://github.com/joaoantonio300/LaravelErp.git
+ git clone https://github.com/joaoantonio300/LaravelErp.git
  
 # Copiar o arquivo de exemplo .env e configurar banco
-cp .env.example .env 
+ cp .env.example .env 
 
 # Baixar dependencias
-composer install
+ composer install
 
 # Gerar a chave da aplicação Laravel
- app php artisan key:generate
+  php artisan key:generate
 
-# Executar as migrations para criar o banco de dados
- app php artisan migrate
-
+# Executar as migrations
+  php artisan migrate
+ 
+# Executar a seed para ter acesso a um usuario central para adesao ao sistema
+  php artisan db:seed
+ 
 # Caso nao suba o container e queira rodar localmente
- php artisan serve
+  php artisan serve
  

@@ -26,7 +26,8 @@
                 <select name="produto_id" id="produto_id" class="form-select">
                     <option value="">Todos os produtos</option>
                     @foreach(App\Models\Produto::all() as $produto)
-                        <option value="{{ $produto->id }}" {{ request('produto_id') == $produto->id ? 'selected' : '' }}>
+                        <option
+                            value="{{ $produto->id }}" {{ request('produto_id') == $produto->id ? 'selected' : '' }}>
                             {{ $produto->nome }}
                         </option>
                     @endforeach
@@ -62,7 +63,8 @@
                         <td>R$ {{ number_format($mov->valor_unitario, 2, ',', '.') }}</td>
                         <td>{{ $mov->observacao }}</td>
                         <td class="d-flex justify-content-center gap-2">
-                            <a href="{{ route('movimentacaos.edit', $mov->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="{{ route('movimentacaos.edit', $mov->id) }}"
+                               class="btn btn-warning btn-sm">Editar</a>
                             <form action="{{ route('movimentacaos.destroy', $mov->id) }}" method="POST"
                                   onsubmit="return confirm('Deseja excluir?');">
                                 @csrf

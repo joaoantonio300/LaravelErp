@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DTOs\UserDTO;
-use App\Http\Controllers\Requests\StoreUserRequest;
+use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
@@ -11,7 +11,9 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-    public function __construct(private UserService $userService) {}
+    public function __construct(private UserService $userService)
+    {
+    }
 
     public function index(Request $request)
     {

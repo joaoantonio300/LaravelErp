@@ -1,17 +1,17 @@
 <div class="mb-3">
     <label for="name" class="form-label">Nome</label>
     <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $usuario->name ?? '') }}"
-        required>
+           required>
 </div>
 
 <div class="mb-3">
     <label for="roles" class="form-label">Perfis</label>
     <select name="roles[]" id="roles" class="form-select" multiple>
         @foreach($roles as $role)
-        <option value="{{ $role->name }}"
-            {{ isset($usuario) && $usuario->roles->contains('name', $role->name) ? 'selected' : '' }}>
-            {{ $role->name }}
-        </option>
+            <option value="{{ $role->name }}"
+                {{ isset($usuario) && $usuario->roles->contains('name', $role->name) ? 'selected' : '' }}>
+                {{ $role->name }}
+            </option>
         @endforeach
     </select>
 </div>
