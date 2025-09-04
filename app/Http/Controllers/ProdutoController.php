@@ -31,7 +31,6 @@ class ProdutoController extends Controller
     {
         $request->validate([
             'nome' => 'required|string|max:255',
-            // 'preco' => 'nullable|numeric|min:0',
             'descricao' => 'nullable|string|max:1000',
         ]);
 
