@@ -25,7 +25,7 @@ de estoque, controle de permissoes e com acesso a relatorios
  cp .env.example .env 
 
 # Baixar dependencias
- composer install
+  composer install
 
 # Gerar a chave da aplicação Laravel
   php artisan key:generate
