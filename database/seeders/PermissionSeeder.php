@@ -9,7 +9,7 @@ class PermissionSeeder extends Seeder
 {
     public function run()
     {
-        $modules = ['usuarios', 'movimentacoes', 'produtos'];
+        $modules = ['usuarios', 'movimentacoes', 'produtos', 'roles'];
         $actions = ['create', 'edit', 'delete', 'view'];
 
         foreach ($modules as $module) {

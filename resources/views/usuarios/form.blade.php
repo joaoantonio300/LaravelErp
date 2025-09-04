@@ -8,7 +8,8 @@
     <label for="roles" class="form-label">Perfis</label>
     <select name="roles[]" id="roles" class="form-select" multiple>
         @foreach($roles as $role)
-        <option value="{{ $role->name }}" {{ $usuario->roles->contains('name', $role->name) ? 'selected' : '' }}>
+        <option value="{{ $role->name }}"
+            {{ isset($usuario) && $usuario->roles->contains('name', $role->name) ? 'selected' : '' }}>
             {{ $role->name }}
         </option>
         @endforeach

@@ -25,64 +25,72 @@ Route::middleware('auth')->group(function () {
         return view('home.home');
     });
 
-    Route::resource('roles', RoleController::class);
 
-    Route::get('usuarios', [UserController::class, 'index'])
-        ->middleware('permission:usuarios.view')
-        ->name('usuarios.index');
-    Route::get('usuarios/create', [UserController::class, 'create'])
-        ->middleware('permission:usuarios.create')
-        ->name('usuarios.create');
-    Route::post('usuarios', [UserController::class, 'store'])
-        ->middleware('permission:usuarios.create')
-        ->name('usuarios.store');
-    Route::get('usuarios/{usuario}/edit', [UserController::class, 'edit'])
-        ->middleware('permission:usuarios.edit')
-        ->name('usuarios.edit');
-    Route::put('usuarios/{usuario}', [UserController::class, 'update'])
-        ->middleware('permission:usuarios.edit')
-        ->name('usuarios.update');
-    Route::delete('usuarios/{usuario}', [UserController::class, 'destroy'])
-        ->middleware('permission:usuarios.delete')
-        ->name('usuarios.destroy');
+    Route::middleware('permission:usuarios.view')->group(function () {
+        Route::get('usuarios', [UserController::class, 'index'])->name('usuarios.index');
 
-    Route::get('produtos', [ProdutoController::class, 'index'])
-        ->middleware('permission:produtos.view')
-        ->name('produtos.index');
-    Route::get('produtos/create', [ProdutoController::class, 'create'])
-        ->middleware('permission:produtos.create')
-        ->name('produtos.create');
-    Route::post('produtos', [ProdutoController::class, 'store'])
-        ->middleware('permission:produtos.create')
-        ->name('produtos.store');
-    Route::get('produtos/{produto}/edit', [ProdutoController::class, 'edit'])
-        ->middleware('permission:produtos.edit')
-        ->name('produtos.edit');
-    Route::put('produtos/{produto}', [ProdutoController::class, 'update'])
-        ->middleware('permission:produtos.edit')
-        ->name('produtos.update');
-    Route::delete('produtos/{produto}', [ProdutoController::class, 'destroy'])
-        ->middleware('permission:produtos.delete')
-        ->name('produtos.destroy');
+        Route::middleware('permission:usuarios.create')->group(function () {
+            Route::get('usuarios/create', [UserController::class, 'create'])->name('usuarios.create');
+            Route::post('usuarios', [UserController::class, 'store'])->name('usuarios.store');
+        });
 
-    Route::get('movimentacaos', [MovimentacaoController::class, 'index'])
-        ->middleware('permission:movimentacoes.view')
-        ->name('movimentacaos.index');
-    Route::get('movimentacaos/create', [MovimentacaoController::class, 'create'])
-        ->middleware('permission:movimentacoes.create')
-        ->name('movimentacaos.create');
-    Route::post('movimentacaos', [MovimentacaoController::class, 'store'])
-        ->middleware('permission:movimentacoes.create')
-        ->name('movimentacaos.store');
-    Route::get('movimentacaos/{movimentacao}/edit', [MovimentacaoController::class, 'edit'])
-        ->middleware('permission:movimentacoes.edit')
-        ->name('movimentacaos.edit');
-    Route::put('movimentacaos/{movimentacao}', [MovimentacaoController::class, 'update'])
-        ->middleware('permission:movimentacoes.edit')
-        ->name('movimentacaos.update');
-    Route::delete('movimentacaos/{movimentacao}', [MovimentacaoController::class, 'destroy'])
-        ->middleware('permission:movimentacoes.delete')
-        ->name('movimentacaos.destroy');
+        Route::middleware('permission:usuarios.edit')->group(function () {
+            Route::get('usuarios/{usuario}/edit', [UserController::class, 'edit'])->name('usuarios.edit');
+            Route::put('usuarios/{usuario}', [UserController::class, 'update'])->name('usuarios.update');
+        });
+
+        Route::middleware('permission:usuarios.delete')->delete('usuarios/{usuario}', [UserController::class, 'destroy'])
+            ->name('usuarios.destroy');
+    });
+
+    Route::middleware('permission:produtos.view')->group(function () {
+        Route::get('produtos', [ProdutoController::class, 'index'])->name('produtos.index');
+
+        Route::middleware('permission:produtos.create')->group(function () {
+            Route::get('produtos/create', [ProdutoController::class, 'create'])->name('produtos.create');
+            Route::post('produtos', [ProdutoController::class, 'store'])->name('produtos.store');
+        });
+
+        Route::middleware('permission:produtos.edit')->group(function () {
+            Route::get('produtos/{produto}/edit', [ProdutoController::class, 'edit'])->name('produtos.edit');
+            Route::put('produtos/{produto}', [ProdutoController::class, 'update'])->name('produtos.update');
+        });
+
+        Route::middleware('permission:produtos.delete')->delete('produtos/{produto}', [ProdutoController::class, 'destroy'])
+            ->name('produtos.destroy');
+    });
+
+    Route::middleware('permission:movimentacoes.view')->group(function () {
+        Route::get('movimentacaos', [MovimentacaoController::class, 'index'])->name('movimentacaos.index');
+
+        Route::middleware('permission:movimentacoes.create')->group(function () {
+            Route::get('movimentacaos/create', [MovimentacaoController::class, 'create'])->name('movimentacaos.create');
+            Route::post('movimentacaos', [MovimentacaoController::class, 'store'])->name('movimentacaos.store');
+        });
+
+        Route::middleware('permission:movimentacoes.edit')->group(function () {
+            Route::get('movimentacaos/{movimentacao}/edit', [MovimentacaoController::class, 'edit'])->name('movimentacaos.edit');
+            Route::put('movimentacaos/{movimentacao}', [MovimentacaoController::class, 'update'])->name('movimentacaos.update');
+        });
+
+        Route::middleware('permission:movimentacoes.delete')->delete('movimentacaos/{movimentacao}', [MovimentacaoController::class, 'destroy'])
+            ->name('movimentacaos.destroy');
+    });
+
+    Route::middleware('permission:roles.view')->group(function () {
+        Route::get('permissoes', [RoleController::class, 'index'])->name('roles.index');
+        Route::middleware('permission:roles.create')->group(function () {
+            Route::get('permissoes/create', [RoleController::class, 'create'])->name('roles.create');
+            Route::post('permissoes', [RoleController::class, 'store'])->name('roles.store');
+        });
+        Route::middleware('permission:roles.edit')->group(function () {
+            Route::get('permissoes/{permissao}/edit', [RoleController::class, 'edit'])->name('roles.edit');
+            Route::put('permissoes/{permissao}', [RoleController::class, 'update'])->name('roles.update');
+        });
+        Route::middleware('permission:roles.delete')->group(function () {
+            Route::delete('permissoes/{permissao}', [RoleController::class, 'destroy'])->name('roles.destroy');
+        });
+    });
 
     Route::get('relatorios', [RelatorioController::class, 'index'])
         ->middleware('permission:relatorios.view')
