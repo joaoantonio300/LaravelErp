@@ -19,10 +19,10 @@ de estoque, controle de permissoes e com acesso a relatorios
 
 ```bash
 # Clonar o repositório e entrar na pasta do projeto
- git clone https://github.com/joaoantonio300/LaravelErp.git
- 
+  git clone https://github.com/joaoantonio300/LaravelErp.git
+  
 # Copiar o arquivo de exemplo .env e configurar banco
- cp .env.example .env 
+  cp .env.example .env 
 
 # Baixar dependencias
   composer install
