@@ -8,17 +8,6 @@
             <h1 class="mb-0">Painel de Relatórios</h1>
         </div>
 
-        <div class="row g-3">
-            <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Produtos</h5>
-                        <ul class="list-unstyled">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
             <div class="col-md-4">
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
@@ -34,17 +23,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Estoque</h5>
-                        <ul class="list-unstyled">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         @include('movimentacaos.relatorio.modals.relatorio_de_movimentacoes_modal')
     </div>
