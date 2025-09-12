@@ -17,6 +17,8 @@ RUN a2enmod rewrite
 
 RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
 
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 COPY . .
@@ -26,10 +28,11 @@ RUN composer install --optimize-autoloader --no-dev
 RUN chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
-RUN php artisan config:cache \
-    && php artisan route:cache \
-    && php artisan view:cache
+RUN php artisan config:cache --no-interaction \
+    && php artisan route:cache --no-interaction \
+    && php artisan view:cache --no-interaction
 
 EXPOSE 80
 
 CMD ["apache2-foreground"]
+
