@@ -15,13 +15,20 @@ RUN apt-get update && apt-get install -y \
 
 RUN a2enmod rewrite
 
+RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
+
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 COPY . .
 
 RUN composer install --optimize-autoloader --no-dev
 
-RUN chown -R www-data:www-data storage bootstrap/cache
+RUN chown -R www-data:www-data storage bootstrap/cache \
+    && chmod -R 775 storage bootstrap/cache
+
+RUN php artisan config:cache \
+    && php artisan route:cache \
+    && php artisan view:cache
 
 EXPOSE 80
 

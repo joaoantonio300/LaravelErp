@@ -25,7 +25,6 @@ Route::middleware('auth')->group(function () {
         return view('home.home');
     });
 
-
     Route::middleware('permission:usuarios.view')->group(function () {
         Route::get('usuarios', [UserController::class, 'index'])->name('usuarios.index');
 
